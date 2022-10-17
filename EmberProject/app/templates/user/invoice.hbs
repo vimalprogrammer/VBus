@@ -1,0 +1,56 @@
+{{page-title "Invoice"}}
+
+{{#each this.model as |seats| }}
+
+{{!-- <h2>{{seats.seat_booked}}</h2>
+<h2>{{seats.name}}</h2>
+<h2>{{seats.email}}</h2>
+<h2>{{seats.price}}</h2>
+<h2>{{seats.bus_no}}</h2> --}}
+
+
+
+<center><br><br><br>
+<h2>CONFIRM TICKET</h2>    
+<br><br>
+<table border="1" width="30%" cellpadding="3">
+<thead>
+<tr>
+<th colspan="2" align ="left">Register Bus Here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enter Name</td>
+<td><input type="text" name="name" value='{{seats.name}}' readonly /></td>
+</tr>
+<tr>
+<td>Enter mail</td>
+<td><input type="text" name="mail" value='{{seats.email}}' readonly /></td>
+</tr>
+<tr>
+<td>Ticket_no</td>
+<td><input type="text" name="ticket_no" value="{{seats.seat_booked}}" readonly /></td>
+</tr>
+<tr>
+<td>Bus_no</td>
+<td><input type="text" name="bus_no" value='{{seats.bus_no}}' readonly /></td>
+</tr>
+<tr>
+<td>Price</td>
+<td><input type="text" name="price" value='{{seats.price}}' readonly /></td>
+</tr>
+<tr>
+<td><a href="addCal"><input type="submit" value="Book" /></a></td>
+</tr>
+<tr>
+</tr>
+</tbody>
+</table>
+</center>
+{{/each}}
+<center>
+    <br><br>
+        <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>
+</center>
+

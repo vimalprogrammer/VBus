@@ -1,0 +1,45 @@
+{{page-title "AdPanel"}}
+
+<style>
+.bus {
+  text-align: center;
+  border: 3px solid green;
+    background-color: lightblue;
+}
+.bus1 {
+  text-align: center;
+}
+</style>
+
+<style>
+body {
+
+  background-image: url('https://www.nicepng.com/png/full/10-102524_travel-bus-png-bus-booking.png');
+  height: 20%;
+
+  /* Center and scale the image nicely */
+  background-position: right;
+  background-position: bottom 50px right 30px;
+  background-repeat: no-repeat;
+/*  margin-top: 130px;
+*/
+}
+</style>
+<style>
+  body {
+  justify-content: center;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 15px;
+  }
+</style>
+
+<br><br><br><br><br>
+<center>
+    <a href='add_bus'><button type='button' class='btn btn-light' data-mdb-ripple-color='dark' style='color: black; font-size: 20px;'>ADD BUS</button></a><br><br>        
+    <a href='view_bus'><button type='button' class='btn btn-light' data-mdb-ripple-color='dark' style='color: black; font-size: 20px;'>VIEW BUS</button></a><br><br>
+    <a href='edit_bus'><button type='button' class='btn btn-light' data-mdb-ripple-color='dark' style='color: black; font-size: 20px;'>EDIT BUS</button></a><br><br>
+    <a href='delete_bus'><button type='button' class='btn btn-light' data-mdb-ripple-color='dark' style='color: black; font-size: 20px;'>DELETE BUS</button></a><br><br>
+    <a href='add_admin'><button type='button' class='btn btn-light' data-mdb-ripple-color='dark' style='color: black; font-size: 20px;'>Admin Register</button></a><br>
+</center>
+<br>
+<center><button id="logout" value="Logout" type="button" class="btn btn-light" data-mdb-ripple-color="dark" style="color: rgb(225, 30, 108); font-size: 20px;"{{ action "logout" }}>Logout</button></center>

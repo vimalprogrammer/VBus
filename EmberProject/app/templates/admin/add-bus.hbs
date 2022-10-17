@@ -1,0 +1,168 @@
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<style>
+  .reg {
+    text-align: center;
+    border: 3px solid green;
+    background-color: lightblue;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
+<style>
+  body {
+    justify-content: center;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+  }
+
+  form {
+    border: 5px solid #f1f1f1;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 16px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #8ebf42;
+    color: white;
+    padding: 14px 0;
+    margin: 10px 0;
+    border: none;
+    cursor: grabbing;
+    width: 50%;
+    border: none;
+    color: white;
+    padding: 25px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  #l1,
+  #l2,
+  #slpr {
+    display: inline-block;
+  }
+</style>
+
+<style>
+  h1 {
+    text-align: center;
+    fone-size: 18;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .formcontainer {
+    text-align: left;
+    margin: 24px 50px 12px;
+  }
+
+  .container {
+    padding: 16px 0;
+    text-align: left;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 0;
+    padding-right: 15px;
+  }
+
+  /* Change styles for span on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+
+<form {{action "bus_layout" on="submit" }}>
+<center>
+      <div class="formcontainer">
+        <div class="container">
+          <table align="center">
+            <thead>
+              <tr>
+                <center><th>Register Bus Here</th></center>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Enter Bus Number</td>
+                <td><input type="text" name="bus_number" id="bus_number"  required /></td>
+              </tr>
+              <tr>
+                <td>Enter Bus Name</td>
+                <td><input type="text" name="bus_name" id="bus_name"  required /></td>
+              </tr>
+              <tr>
+                <td>AC</td>
+                <td><input type="radio" name="ac" value="Yes" id="ac" required />Yes</td>
+                <td><input type="radio" name="ac" value="No" id="ac1" required />No</td>
+              </tr>
+              <tr>
+                <td>Sleeper</td>
+                <td><input type="radio" name="sleeper" value="Yes" id="sleeper" required />Yes</td>
+                <td><input type="radio" name="sleeper" value="No" id="sleeper1" required />No</td>
+              </tr>
+              <tr>
+                <td>Enter departure place</td>
+                <td><input id="myInput" type="text" name="dep" id="dep" required /></td>
+              </tr>
+              <tr>
+                <td>Enter destination place</td>
+                <td><input id="myInput1" type="text" name="des" id="des" required /></td>
+              </tr>
+              <tr>
+                <td>Enter Price</td>
+                <td><input type="text" name="price" id="price" required /></td>
+              </tr>
+              <tr>
+                <td>LAYOUT</td>
+                <td><input type="radio" name="layout" value="2X2" id="2x2" required />2X2</td>
+                <td><input type="radio" name="layout" value="2X3" id="2x3" required />2X3</td>
+              </tr>
+              <br>
+              <tr>
+                <td>Last Row</td>
+                <td><input type="radio" name="last_row" value="last_row_enable" id="en_lastrow" required />Enable</td>
+                <td><input type="radio" name="last_row" value="last_row_disable" id="dis_lastrow" required />Disable</td>
+              </tr>
+              <br>
+              <tr>
+                <td>Lower Berth</td>
+                <td><input type="radio" name="lower_berth" value="lower_berth_enable" id="lower_berth" required /> Yes</td>
+                <td><input type="radio" name="lower_berth" value="lower_berth_disable" id="lower_berth" required />No</td>
+              </tr>
+              <br>
+              <tr>
+                <td>Upper Berth</td>
+                <td><input type="radio" name="upper_berth" value="upper_berth_enable" id="upper_berth" required /> Yes</td>
+                <td><input type="radio" name="upper_berth" value="upper_berth_disable" id="upper_berth" required />No</td>
+              </tr>
+            </tbody>
+          </table><br><br>
+            <center><button type="submit" >Add</button></center>
+        </div>
+      </div>
+    </center>
+</form>
+    <br>
+        <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>

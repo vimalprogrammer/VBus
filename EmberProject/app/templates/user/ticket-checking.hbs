@@ -1,0 +1,51 @@
+{{page-title "TicketChecking"}}
+
+<center>
+    <br><br>
+<table border="1" cellpadding="5" width="500">
+    <tr>
+        <th>
+            Bus_ID
+        </th>
+        <th>
+            Bus_Name
+        </th>
+        <th>
+            Total_Seats
+        </th>
+        <th>
+            sleeper
+        </th>
+        <th>
+            Departure
+        </th>
+        <th>
+            Destination
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            AC
+        </th>
+    </tr>
+
+    {{#each this.model as |bus| }}
+    <tr>
+        {{!-- <td><form {{action "ticketButton" on="submit" }}> <input type="submit" id="bus_no" name="bus_no" value={{bus.bus_no}}></form></td> --}}
+        <td><button id="{{bus.id}}" value="{{bus.bus_no}}" type="button" {{ action "ticketButton" bus.id }}>{{bus.bus_no}}</button></td>
+        <td>{{bus.bus_name}}</td>
+        <td>{{bus.seats}}</td>
+        <td>{{bus.sleeper}}</td>
+        <td>{{bus.dep}}</td>
+        <td>{{bus.des}}</td>
+        <td>{{bus.price}}</td>
+        <td>{{bus.ac}}</td>
+    </tr>
+    {{/each}}
+    </table>
+</center> 
+<br>
+    <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>
+
+{{!-- <button style="color:#2cd223;"  id="{{seats.id}}" value="{{seats.seat_cnt}}" {{ action "InvoiceGenerate" seats.id }}>{{seats.seat_cnt}}</button> --}}

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+<!-- 
+<servlet>
+	<servlet-name>s1</servlet-name>
+	<servlet-class>ServletDemo</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>s1</servlet-name>
+	<url-pattern>/add</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>s2s</servlet-name>
+	<servlet-class>Servlet2servlet</servlet-class>
+
+<init-param>
+	<param-name>name</param-name>
+	<param-value>Vimal M</param-value>
+</init-param>
+
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>s2s</servlet-name>
+	<url-pattern>/v</url-pattern>
+</servlet-mapping>
+
+
+<context-param>
+	<param-name>name</param-name>
+	<param-value>VIMAL M</param-value>
+</context-param>
+ -->
+
+
+<!-- <servlet>
+	<servlet-name>s1</servlet-name>
+	<servlet-class>LoginVimal</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>s1</servlet-name>
+	<url-pattern>/login_d</url-pattern>
+</servlet-mapping> -->
+
+<!-- <servlet>
+	<servlet-name>QR</servlet-name>
+	<servlet-class>MainApplication</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>QR</servlet-name>
+	<url-pattern>/qr</url-pattern>
+</servlet-mapping> -->
+
+
+<!-- <servlet>
+	<servlet-name>code</servlet-name>
+	<servlet-class>Auth</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>out</servlet-name>
+	<servlet-class>Result</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>code</servlet-name>
+	<url-pattern>/servlet1</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>out</servlet-name>
+	<url-pattern>/servlet2</url-pattern>
+</servlet-mapping> -->
+
+<servlet>
+	<servlet-name>demo</servlet-name>
+	<servlet-class>demo</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>demo</servlet-name>
+	<url-pattern>/demo</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>Login</servlet-name>
+	<servlet-class>Login</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Login</servlet-name>
+	<url-pattern>/Login</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>getUser</servlet-name>
+	<servlet-class>getUser</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>getUser</servlet-name>
+	<url-pattern>/getUser</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>viewTicket</servlet-name>
+	<servlet-class>viewTicket</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>viewTicket</servlet-name>
+	<url-pattern>/viewTicket</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>TicketChecking</servlet-name>
+	<servlet-class>TicketChecking</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>TicketChecking</servlet-name>
+	<url-pattern>/TicketChecking</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>availableTicket</servlet-name>
+	<servlet-class>availableTicket</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>availableTicket</servlet-name>
+	<url-pattern>/availableTicket</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>ticketButton</servlet-name>
+	<servlet-class>ticketButton</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ticketButton</servlet-name>
+	<url-pattern>/ticketButton</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>showTicket2</servlet-name>
+	<servlet-class>showTicket2</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>showTicket2</servlet-name>
+	<url-pattern>/showTicket2</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>invoice</servlet-name>
+	<servlet-class>invoice</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>invoice</servlet-name>
+	<url-pattern>/invoice</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>invoice2</servlet-name>
+	<servlet-class>invoice2</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>invoice2</servlet-name>
+	<url-pattern>/invoice2</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>Auth_user</servlet-name>
+	<servlet-class>Auth_user</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Auth_user</servlet-name>
+	<url-pattern>/Auth_user</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>qrcode</servlet-name>
+	<servlet-class>qrcode</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>qrcode</servlet-name>
+	<url-pattern>/qrcode</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>qrcheck</servlet-name>
+	<servlet-class>qrcheck</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>qrcheck</servlet-name>
+	<url-pattern>/qrcheck</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>logout</servlet-name>
+	<servlet-class>logout</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>logout</servlet-name>
+	<url-pattern>/logout</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>admin_login</servlet-name>
+	<servlet-class>admin_login</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>admin_login</servlet-name>
+	<url-pattern>/admin_login</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>Auth_user2</servlet-name>
+	<servlet-class>Auth_user2</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Auth_user2</servlet-name>
+	<url-pattern>/Auth_user2</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>qrcheck2</servlet-name>
+	<servlet-class>qrcheck2</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>qrcheck2</servlet-name>
+	<url-pattern>/qrcheck2</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>viewBus</servlet-name>
+	<servlet-class>viewBus</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>viewBus</servlet-name>
+	<url-pattern>/viewBus</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>Edit_bus</servlet-name>
+	<servlet-class>Edit_bus</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Edit_bus</servlet-name>
+	<url-pattern>/Edit_bus</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>delete_bus</servlet-name>
+	<servlet-class>delete_bus</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>delete_bus</servlet-name>
+	<url-pattern>/delete_bus</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>add_admin</servlet-name>
+	<servlet-class>add_admin</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>add_admin</servlet-name>
+	<url-pattern>/add_admin</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>LoginJAAS</servlet-name>
+	<servlet-class>LoginJAAS</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>LoginJAAS</servlet-name>
+	<url-pattern>/LoginJAAS</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>ErrorJAAS</servlet-name>
+	<servlet-class>ErrorJAAS</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ErrorJAAS</servlet-name>
+	<url-pattern>/ErrorJAAS</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>IsLoggedIn</servlet-name>
+	<servlet-class>IsLoggedIn</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>IsLoggedIn</servlet-name>
+	<url-pattern>/IsLoggedIn</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>RolePrincipal</servlet-name>
+	<servlet-class>RolePrincipal</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>RolePrincipal</servlet-name>
+	<url-pattern>/RolePrincipal</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>UserPrincipal</servlet-name>
+	<servlet-class>UserPrincipal</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>UserPrincipal</servlet-name>
+	<url-pattern>/UserPrincipal</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>LoginModuleVbus</servlet-name>
+	<servlet-class>LoginModuleVbus</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>LoginModuleVbus</servlet-name>
+	<url-pattern>/LoginModuleVbus</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>SetAccessToken</servlet-name>
+	<servlet-class>SetAccessToken</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>SetAccessToken</servlet-name>
+	<url-pattern>/SetAccessToken</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>GoogleSignin</servlet-name>
+	<servlet-class>GoogleSignin</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>GoogleSignin</servlet-name>
+	<url-pattern>/GoogleSignin</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>add_bus</servlet-name>
+	<servlet-class>add_bus</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>add_bus</servlet-name>
+	<url-pattern>/add_bus</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>user_register</servlet-name>
+	<servlet-class>user_register</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>user_register</servlet-name>
+	<url-pattern>/user_register</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>LoginServlet</servlet-name>
+	<servlet-class>LoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>LoginServlet</servlet-name>
+	<url-pattern>/LoginServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>GooglePojo</servlet-name>
+	<servlet-class>GooglePojo</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>GooglePojo</servlet-name>
+	<url-pattern>/GooglePojo</url-pattern>
+</servlet-mapping>
+
+
+<security-constraint>
+
+	<web-resource-collection>
+		<web-resource-name>Vbus</web-resource-name>
+		<url-pattern>/getUser</url-pattern>
+		<!-- <url-pattern>/add_admin</url-pattern> -->
+		<!-- <url-pattern>/admin_login</url-pattern> -->
+		<url-pattern>/Auth_user</url-pattern>
+		<!-- <url-pattern>/Auth_user2</url-pattern> -->
+		<url-pattern>/availableTicket</url-pattern>
+		<url-pattern>/Code</url-pattern>
+		<url-pattern>/delete_bus</url-pattern>
+		<url-pattern>/Edit_bus</url-pattern>
+		<url-pattern>/getUser</url-pattern>
+		<url-pattern>/invoice</url-pattern>
+		<url-pattern>/invoice2</url-pattern>
+		<url-pattern>/IsLoggedIn</url-pattern>
+		<url-pattern>/Login</url-pattern>
+		<url-pattern>/logout</url-pattern>
+		<url-pattern>/qrcheck</url-pattern>
+		<!-- <url-pattern>/qrcheck2</url-pattern> -->
+		<!-- <url-pattern>/qrcode</url-pattern> -->
+		<url-pattern>/showTicket2</url-pattern>
+		<url-pattern>/ticketButton</url-pattern>
+		<url-pattern>/TicketChecking</url-pattern>
+		<!-- <url-pattern>/user_register</url-pattern> -->
+		<!-- <url-pattern>/viewBus</url-pattern> -->
+		<url-pattern>/viewTicket</url-pattern>
+
+		<http-method>GET</http-method>
+		<http-method>POST</http-method>
+	</web-resource-collection>
+
+	<auth-constraint>
+		<role-name>*</role-name>
+	</auth-constraint>
+
+</security-constraint>
+
+<security-role>
+	<role-name>*</role-name>
+</security-role>
+
+<login-config>
+	<auth-method>FORM</auth-method>
+	<form-login-config>
+		<form-login-page>/LoginJAAS</form-login-page>
+		<form-error-page>/ErrorJAAS</form-error-page>
+	</form-login-config>
+</login-config>
+</web-app>

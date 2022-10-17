@@ -1,0 +1,89 @@
+{{page-title "UserRegister"}}
+
+<br><br>
+    <div class="reg">
+    <form {{action "user_register" on="submit" }}>
+      <h1>User Register</h1>
+      <div class="formcontainer">
+            <hr/>
+            <div class="container">
+                <label for="fname"><strong>First Name</strong></label><br>
+                <input type="text" placeholder="Enter first name" name="fname" id="fname" required><br><br>
+                <label for="lname"><strong>Last Name</strong></label><br>
+                <input type="text" placeholder="Enter last name" name="lname" id="lname" required><br><br>
+                <label for="email"><strong>Mail</strong></label><br>
+                <input type="email" placeholder="Enter email" name="email" id="email" required><br><br>
+                <label for="ph"><strong>Phone</strong></label><br>
+                <input type="text" placeholder="Enter Phone" name="ph" id="ph" required><br><br>
+                <label for="gender"><strong>Gender</strong></label><br>
+                <input type="radio" name="gender" value="Male" id="male" required/>Male
+                <input type="radio" name="gender" value="Female" id="female" />Female
+        {{!--         <input type="text" placeholder="Enter gender" name="gender" required><br><br>--}}<br><br>        
+                <label for="psw"><strong>Password</strong></label><br>
+                <input type="password" placeholder="Enter Password" name="pwd" id="password" required><br><br>
+                <label for="cnfm_psw"><strong>Confirm Password</strong></label><br>
+                <input type="password" placeholder="Confirm Password" name="cnfm_pwd" id="confirm_password" required><br>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+        </script>
+        
+      <button type="submit">Register</button>
+      <br>
+              <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>
+      <div class="container" style="background-color: #eee">
+        <label style="padding-left: 15px"></label>
+      </div>
+    </form>
+    </div>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      .reg{
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+      }
+      button {
+      background-color: #8ebf42;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grabbing;
+      width: 100%;
+      }
+      h1 {
+      text-align:center;
+      fone-size:18;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      text-align: left;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+    </style>

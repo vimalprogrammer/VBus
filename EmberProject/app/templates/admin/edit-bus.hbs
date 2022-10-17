@@ -1,0 +1,58 @@
+{{page-title "EditBus"}}
+
+
+<br><br><center><h3>Edit Bus</h3></center>
+<div class="formcontainer">
+    <div class="container">
+      <form {{action "edit_bus" on="submit" }}>
+            <center>
+                <table border="1" width="30%" cellpadding="3">
+                    <thead>
+                        <tr>
+                            <th colspan="2" align="left">Register Bus Here</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Enter Bus Number</td>
+                            <td><input type="text" name="bus_number" id="bus_number" value="" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Edit Bus Name</td>
+                            <td><input type="text" name="bus_name" id="bus_name" value="" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Edit number of seats</td>
+                            <td><input type="text" name="seats" id="seats" value="" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Edit Sleeper(y/n)</td>
+                            <td><input type="text" name="sleeper" id="sleeper" value="" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Edit departure place</td>
+                            <td><input type="text" name="dep" id="dep" value="" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Edit destination place</td>
+                            <td><input type="text" name="des" id="des" value="" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Edit Price</td>
+                            <td><input type="text" name="price" id="price" value="" required /></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit">Save</button></td>
+                            {{!--<td><button type="submit" value="Edit" /></td>--}}
+                            <td><button type="reset">Reset</button></td>
+                        </tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </center>
+        </form>
+        <br>
+        <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>
+        <br><br>
+    </div>
+</div>

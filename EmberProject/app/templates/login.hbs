@@ -1,0 +1,66 @@
+{{page-title "Login"}}
+{{!-- <h2>Vimal {{this.model}}</h2> --}}
+{{!-- {{#each this.model as |user|}}
+    <p>{{user.demo}}</p>
+{{/each}} --}}
+{{!-- <button type="button" {{action "check"}}>Click</button> --}}
+
+<style>
+.center {
+  text-align: center;
+  border: 3px solid green;
+  background-color: lightblue;
+}
+.log
+{
+  text-align: center;
+  font-size: 20px;
+}
+
+</style>
+
+<script type="text/javascript">
+	
+history.pushState(null, null, window.location.href);
+history.back();
+window.onpopstate = () => history.forward();
+
+</script>
+
+
+{{!-- <script type="text/javascript">
+      function preventBack() {
+    // body...
+    window.history.forward();
+}
+
+setTimeout("preventBack()",0);
+window=function(){null};
+</script> --}}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+{{!-- jQuery library --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+{{!-- Latest compiled JavaScript --}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="styleheader.css">
+	
+{{!-- <div class="topnav">
+  <div class="header" style="text-align: center;"></div>
+</div> --}}
+	<div class="log">
+		
+		<div class="bus_pic" style="align-content: left;">
+			<img src="https://d1flzashw70bti.cloudfront.net/next-gen/images/valueProposition/onTime.webp">
+		</div>
+		<a href="admin/login2"><button type="button" class="btn btn-light" data-mdb-ripple-color="dark" style="color: black; font-size: 20px; transition: 0.5s ease;">Admin Login</button></a>
+
+{{!-- 		<button class="button-1" role="button"><a href="admin.jsp" >Admin Login</a></button>
+ --}}			
+		<a href="user/login1" ><button type="button" class="btn btn-light" data-mdb-ripple-color="dark" style="color: black; font-size: 20px; transition: 0.5s ease;">User Login</button></a>
+				
+	</div>
+
+{{outlet}}

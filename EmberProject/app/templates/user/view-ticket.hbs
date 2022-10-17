@@ -1,0 +1,38 @@
+{{page-title "ViewTicket"}}
+
+<br><br>
+<center>
+<table border="1" cellpadding="5" width="500">
+    <tr>
+        <th>
+            User_ID
+        </th>
+        <th>
+            User Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Ticket ID
+        </th>
+        <th>
+            Bus No
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+{{#each this.model as |ticket| }}
+<tr>
+<td>{{ticket.user_id}}</td>
+<td>{{ticket.username}}</td>
+<td>{{ticket.email}}</td>
+<td>{{ticket.ticket_id}}</td>
+<td>{{ticket.bus_no}}</td>
+<td>{{ticket.price}}</td>
+</tr>
+{{/each}}
+</table>
+</center>
+    <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>

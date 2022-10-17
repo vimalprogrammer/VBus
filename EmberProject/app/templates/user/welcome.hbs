@@ -1,0 +1,40 @@
+{{page-title "Welcome"}}
+<center>
+<br>
+
+<div class='main'><marquee class='marq' direction='left' loop='infinite' > <div >WELCOME TO OUR SITE...</div></marquee></div>
+<br>
+<br>
+{{#each this.model as |user| }}
+<h3>Hello {{user.username}}</h3>
+{{/each}}
+<a href="view_ticket"><button type="button" class="btn btn-light" data-mdb-ripple-color="dark" style="color: black; font-size: 20px;">VIEW MY TICKETS</button></a>
+{{!-- <a href="User/view_ticket.jsp">VIEW MY TICKETS</a>
+ --}}<br>
+<br>
+<a href="book_ticket1"><button type="button" class="btn btn-light" data-mdb-ripple-color="dark" style="color: black; font-size: 20px;">BOOK TICKET</button></a>
+{{!-- <a href="User/book_ticket1.jsp">BOOK TICKET</a>
+ --}}<br><br>
+<br>
+<br>
+<br>
+{{!-- <center><a href="login1" style="font-size:20px;">Logout</a><br></center> --}}
+
+<button id="logout" value="Logout" type="button" class="btn btn-light" data-mdb-ripple-color="dark" style="color: rgb(225, 30, 108); font-size: 20px;"{{ action "logout" }}>Logout</button>
+
+</center>
+
+<style>
+body {
+
+  background-image: url('https://www.nicepng.com/png/full/10-102524_travel-bus-png-bus-booking.png');
+  height: 20%;
+
+  /* Center and scale the image nicely */
+  background-position: right;
+  background-position: bottom -50px right 25px;
+  background-repeat: no-repeat;
+/*  margin-top: 130px;
+*/
+}
+</style>
