@@ -7,4 +7,6 @@ export default class ShowTicket2Model extends Model {
   @attr bus_walk_place;
   @attr slepper40;
   @attr slepper50;
+  @attr sleeper_exist;
+  @attr sleeper_row;
 }

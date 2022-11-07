@@ -1,11 +1,28 @@
 {{page-title "ShowTicket"}}
 <br><br>
-
+<button onClick="window.location.reload();" class="btn">Refresh</button>
 <center>
-
 {{!-- <form {{action "InvoiceGenerate" on="submit" }}> --}}
 <table id='tickets' style="width: ; border: 3px solid black; padding:10px; margin: 10px; ">
 {{#each this.model as |seats| }}
+
+{{#if seats.sleeper_exist}}
+
+{{#if seats.available}}
+
+{{#if seats.sleeper_row}}
+<br>
+<br>
+{{/if}}
+
+<button style="color:#2cd223; padding:10px; margin-right:10px; margin-bottom:10px; width: 12rem; height:4rem"  id="{{seats.id}}" value="{{seats.seat_cnt}}" type="button" {{ action "invoice" seats.id }}>{{seats.seat_cnt}}</button>
+
+{{else}}
+<button style="pointer-events: none;color:#ff0000; padding:10px; margin-right:10px; margin-bottom:10px; width: 12rem; height:4rem"  id="{{seats.id}}" value="{{seats.seat_cnt}}" type="button" {{ action "invoice" seats.id }}>{{seats.seat_cnt}}</button>
+
+{{/if}}
+
+{{else}}
 
 {{#if seats.available }}
 <button style="color:#2cd223; padding:10px; margin-right:10px; margin-bottom:10px; width: 3rem;"  id="{{seats.id}}" value="{{seats.seat_cnt}}" type="button" {{ action "invoice" seats.id }}>{{seats.seat_cnt}}</button>
@@ -19,20 +36,11 @@
 <br><br>
 {{/if}}
 
-{{/each}}
-</table>
-
-{{!-- </form> --}}
-
-{{#each this.model as |seats| }}
-
-{{#if seats.slepper40}}
-<table>
-
-</table>
 {{/if}}
 
 {{/each}}
+</table>
+
 
 <div>
     <br>
@@ -47,3 +55,17 @@
 <center>Available &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Booked</center><br><br>
     <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>
 </center>
+
+<style>
+.btn {
+  background-color: rgb(63, 209, 238);
+  width: 200px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 3px solid yellow;
+  color: white;
+  cursor: pointer;
+  margin-left: 320px;
+}
+</style>

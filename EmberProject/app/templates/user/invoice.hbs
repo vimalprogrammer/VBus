@@ -10,10 +10,10 @@
 
 
 
-<center><br><br><br>
+<center><br><br>
 <h2>CONFIRM TICKET</h2>    
-<br><br>
-<table border="1" width="30%" cellpadding="3">
+<br>
+<table border="1" width="50%" cellpadding="3">
 <thead>
 <tr>
 <th colspan="2" align ="left">Register Bus Here</th>
@@ -41,7 +41,7 @@
 <td><input type="text" name="price" value='{{seats.price}}' readonly /></td>
 </tr>
 <tr>
-<td><a href="addCal"><input type="submit" value="Book" /></a></td>
+<td><form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KUvRDWONfgzG2J" async> </script></form></td>
 </tr>
 <tr>
 </tr>
@@ -50,7 +50,25 @@
 </center>
 {{/each}}
 <center>
-    <br><br>
+    <br>
+    <form></form>
         <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>
 </center>
 
+ <style>
+      form {
+      border: 5px solid #f1f1f1;
+      }
+      input[type=text], input[type=password] {
+      width: 70%;
+      padding: 8px 4px;
+      margin: 4px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      .formcontainer {
+      text-align: center;
+      margin: 24px 50px 12px;
+      }
+      </style>

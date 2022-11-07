@@ -187,5 +187,4 @@ public class LoginModuleVbus implements LoginModule {
 		System.out.println("login module logout! --- Vbus");
 		return true;
 	}
-
 }

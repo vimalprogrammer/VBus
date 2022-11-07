@@ -39,7 +39,7 @@ public class invoice2 extends HttpServlet {
 
 
         String seat_booked = session.getAttribute("seat_booked").toString();
-        System.out.println("--------------seat_booked: " + seat_booked);
+        System.out.println("seat_booked " + seat_booked);
         session.setAttribute("seat_booked", seat_booked);
         String username = (String) session.getAttribute("username");
         String password = (String) session.getAttribute("password");
@@ -97,11 +97,11 @@ try{
     System.out.println("Error in connection "+e);
 }
 
-    String google_sign_in = String.valueOf(session.getAttribute("google_sign_in"));
-    
-    String google_access_token = String.valueOf(session.getAttribute("google_access_token"));
+        String google_sign_in = String.valueOf(session.getAttribute("google_sign_in"));
+        
+        String google_access_token = String.valueOf(session.getAttribute("google_access_token"));
 
-    String seat_block_flag = session.getAttribute("seat_block_flag").toString();
+        //String seat_block_flag = session.getAttribute("seat_block_flag").toString();
     
         // String password = (String) session.getAttribute("password");
         PrintWriter out = response.getWriter();
@@ -113,13 +113,13 @@ try{
         seat.put("email", session.getAttribute("email"));
         seat.put("price", session.getAttribute("price"));
         seat.put("bus_no", bus_no);
-        if(seat_block_flag=="1"){
-            System.out.println("SEAT BLOCKED FOR 10 MIN " + seat_block_flag);
-            seat.put("seat_block_flag", true);
-        }
-        else{
-            seat.put("seat_block_flag", false);
-        }
+        // if(seat_block_flag=="1"){
+        //     System.out.println("SEAT BLOCKED FOR 10 MIN " + seat_block_flag);
+        //     seat.put("seat_block_flag", true);
+        // }
+        // else{
+        //     seat.put("seat_block_flag", false);
+        // }
         if(google_sign_in.equals("true")){
             seat.put("google_sign_in", true);
             seat.put("google_access_token", google_access_token);

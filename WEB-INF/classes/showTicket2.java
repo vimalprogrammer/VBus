@@ -47,7 +47,7 @@ public class showTicket2 extends HttpServlet {
         {
             bus_no="b"+bus_no;
         }
-        System.out.println(bus_no);
+        //System.out.println(bus_no);
         session.setAttribute("bus_no", bus_no);
         // String password = (String) session.getAttribute("password");
         PrintWriter out = response.getWriter();
@@ -78,7 +78,7 @@ public class showTicket2 extends HttpServlet {
             while ( rs.next() ) {
                 // int id = rs.getInt("id");
                 String seat_cnt=rs.getString("seat_no");
-                System.out.println(seat_cnt);
+                //System.out.println(seat_cnt);
                 // JSONObject group = new JSONObject();
                 // group.put("id", 1);
                 // group.put("seat_cnt", seat_cnt);
@@ -90,7 +90,7 @@ public class showTicket2 extends HttpServlet {
             {
                 String seats = rs1.getString("seat_no");
                 int seat_no_layout = rs1.getInt("id");
-                System.out.println(seats);
+                //System.out.println(seats);
                 JSONObject group = new JSONObject();
                 group.put("id", jsonid);
                 group.put("seat_cnt", seats);
@@ -125,15 +125,33 @@ public class showTicket2 extends HttpServlet {
                 if(seat_no_layout>50)
                 {
                     group.put("slepper50", true);
+                    //System.out.println("slepper50 In");
+                    String seat_no_layout_booked=seat_no_layout+"";
+                    if((seat_no_layout==51 || seat_no_layout_booked.equals("B51")) || (seat_no_layout==54 || seat_no_layout_booked.equals("B54")))
+                    {
+                        group.put("sleeper_row", true);
+                    }
                 }
                 else
                 {
                     group.put("slepper50", false);
                 }
 
-                if(seat_no_layout>40)
+                if(seat_no_layout>40 && seat_no_layout<50)
                 {
                     group.put("sleeper40", true);
+                    group.put("sleeper_exist", true);
+                    //System.out.println("Sleeper 40 In");
+                    String seat_no_layout_booked=seat_no_layout+"";
+                    if((seat_no_layout==41 || seat_no_layout_booked.equals("B41")) || (seat_no_layout==44 || seat_no_layout_booked.equals("B44")) ||
+                    (seat_no_layout==47 || seat_no_layout_booked.equals("B47")) || (seat_no_layout==51 || seat_no_layout_booked.equals("B51")))
+                    {
+                        group.put("sleeper_row", true);
+                    }
+                    else
+                    {
+                        group.put("sleeper_row", false);
+                    }
                 }
                 else
                 {

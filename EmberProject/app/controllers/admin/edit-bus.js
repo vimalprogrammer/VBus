@@ -39,6 +39,14 @@ export default class AdminEditBusController extends Controller {
         console.log("edit_bus ajax sent");
         console.log(response);
         var result = response;
+        t.router.transitionTo("admin.ad_panel");
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Bus Edited Successfully',
+          showConfirmButton: false,
+          timer: 1500
+        }) 
       },
     });
   }

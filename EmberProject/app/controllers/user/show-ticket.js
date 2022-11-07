@@ -29,7 +29,7 @@ export default class UserShowTicketController extends Controller {
     var t = this;
     console.log(bus_booked);
     $.ajax({
-      url: "/V4/invoice",
+      url: "/V4/Test_Ticket",
       method: "GET",
       data: { bus_booked: bus_booked },
       success: function (response) {
@@ -40,16 +40,58 @@ export default class UserShowTicketController extends Controller {
         // t.router.transitionTo("user.invoice");
         const obj = JSON.parse(response);
         console.log(obj);
-        if(obj.seat_block==true)
-        {
-          Swal.fire('Sorry the seat is already booked by someone else');
+        console.log(obj.res);
+        var res = obj.res;
+        if(res=="false"){
+            Swal.fire('Sorry the seat is already booked by someone else');
         }
+
         else
         {
-          t.router.transitionTo("user.invoice");
+            t.router.transitionTo("user.invoice");
         }
-        //   window.location.reload(true);
-      },
-    });
+
+
+        // $.ajax({
+        //   url: "/V4/invoice",
+        //   method: "GET",
+        //   success: function (response) {
+        //     console.log("ajax sent from invoice controller");
+        //     // console.log(response);
+        //     // console.log(response);
+        //     var result2 = response;
+        //     // t.router.transitionTo("user.invoice");
+        //     const obj2 = JSON.parse(response);
+        //     console.log(obj2);
+
+        //     var res = obj2.seat_block;
+        //     console.log(res);
+
+        //     if(res == false){
+        //       console.log("Seat is available");
+        //     }
+        //     else{
+        //       console.log("Seat is already booked");
+        //       Swal.fire('Sorry the seat is already booked by someone else');
+        //     }
+
+            // if(obj2.seat_block==true)
+            // {
+            //   console.log("Seat is already booked");
+            //   Swal.fire('Sorry the seat is already booked by someone else');
+            // }
+            // else{
+            //   console.log("Seat is available");
+            // }
+            // else
+            // {
+            //   Swal.fire('Success! Successfully booked the seat');
+            //   //t.router.transitionTo("user.invoice");
+            // }
+          // window.location.reload(true);
+    //   },
+    // });
+  },
+});
   }
 }

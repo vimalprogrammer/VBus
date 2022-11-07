@@ -29,6 +29,14 @@ export default class AdminQrcode2Controller extends Controller {
             timer: 1500
           }) 
         }
+        else
+        {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Invalid Credentials!',
+          })
+        }
       },
     });
   }

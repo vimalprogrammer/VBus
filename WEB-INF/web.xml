@@ -374,6 +374,33 @@
 	<url-pattern>/GooglePojo</url-pattern>
 </servlet-mapping>
 
+<servlet>
+	<servlet-name>Test_Ticket</servlet-name>
+	<servlet-class>Test_Ticket</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Test_Ticket</servlet-name>
+	<url-pattern>/Test_Ticket</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>TicketCounter</servlet-name>
+	<servlet-class>TicketCounter</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>TicketCounter</servlet-name>
+	<url-pattern>/TicketCounter</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>TicketBookingThread</servlet-name>
+	<servlet-class>TicketBookingThread</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>TicketBookingThread</servlet-name>
+	<url-pattern>/TicketBookingThread</url-pattern>
+</servlet-mapping>
+
 
 <security-constraint>
 

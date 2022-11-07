@@ -46,6 +46,14 @@ export default class UserQrcodeController extends Controller {
             timer: 1500
           }) 
         }
+        else
+        {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Invalid Credentials!',
+          })
+        }
       },
     });
   }

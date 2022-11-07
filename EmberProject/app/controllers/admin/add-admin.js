@@ -19,6 +19,13 @@ export default class AdminAddAdminController extends Controller {
       success: function (response) {
         console.log("add admin ajax sent");
         console.log(response);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Admin Added Successfully',
+          showConfirmButton: false,
+          timer: 1500
+        }) 
       },
     });
   }

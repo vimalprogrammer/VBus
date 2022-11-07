@@ -39,6 +39,11 @@ export default class UserLogin1Controller extends Controller {
         console.log(response);
         if (response == 2) {
           console.log("error page");
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Invalid Credentials!',
+          })
           // document.getElementById('worng-otp').innerHTML =
           //   'Wrong OTP,Try again!';
         } else {
@@ -138,7 +143,7 @@ export default class UserLogin1Controller extends Controller {
                     console.log("J security SENTT");
                     console.log(response);
                     if (response == 2) {
-                      console.log("error page");
+                      console.log("error page ");
                     } else {
                       now.router.transitionTo("user.Welcome");
                     }

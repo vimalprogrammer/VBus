@@ -17,6 +17,14 @@ export default class AdminDeleteBusController extends Controller {
       success: function (response) {
         console.log("delete ajax sent");
         console.log(response);
+        t.router.transitionTo("admin.ad_panel");
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Bus Deleted Successfully',
+          showConfirmButton: false,
+          timer: 1500
+        }) 
       },
     });
   }
