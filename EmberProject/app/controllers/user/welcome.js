@@ -33,7 +33,6 @@ export default class UserWelcomeController extends Controller {
       success: function (response) {
         console.log("ajax sent");
         console.log(response);
-        // t.router.transitionTo("user.Welcome");
         t.router.transitionTo("login");
         Swal.fire({
           position: 'center',
@@ -42,7 +41,6 @@ export default class UserWelcomeController extends Controller {
           showConfirmButton: false,
           timer: 1500
         }) 
-        //   window.location.reload(true);
       },
     });
   }

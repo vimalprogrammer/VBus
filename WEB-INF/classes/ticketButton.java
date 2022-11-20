@@ -38,7 +38,6 @@ public class ticketButton extends HttpServlet {
         
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //inialize session
                 HttpSession session = request.getSession(true);
 
                 String bus_no = request.getParameter("bus_no");

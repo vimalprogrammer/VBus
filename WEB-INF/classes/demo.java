@@ -43,7 +43,7 @@ public class demo extends HttpServlet {
         groups.add(singlegroup);
         singlegroup = new JSONObject();
         singlegroup.put("id", 2);
-        singlegroup.put("demo","varun");
+        singlegroup.put("demo","vishnu");
         groups.add(singlegroup);
         out.println(groups);
 }

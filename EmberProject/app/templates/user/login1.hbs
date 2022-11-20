@@ -80,8 +80,6 @@ body {
       }
 
       </style>
-
-   {{!-- <form method="post" action="login_user" style="text-align: center;"> --}}
     <br>
       <h1>User login</h1>
       <form {{action "Login" on="submit" }}>
@@ -94,40 +92,16 @@ body {
         <input type="password" placeholder="Enter Password" id="pwd" name="pwd" required>
       </div>
       <button type="submit">Login</button>
-  {{!-- </form> --}}
-  </div>
+      </div>
       </form>
 
-<div class="content" align="center">
-</div>
+  <div class="content" align="center">
+  </div>
 
-<br>
+  <br>
 
-<div class='grow' ><img src='https://i.stack.imgur.com/QPLoG.png' {{action "GetAccessToken"}}></div>
+  <div class='grow' ><img src='https://i.stack.imgur.com/QPLoG.png' {{action "GetAccessToken"}}></div>
 
-{{!--
-<script>
-  //  function redirectTo(){
-    //    const hostname=window.location.hostname; 
-     //   console.log(hostname);
-     //   window.location.href = "https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&state="+hostname+"&redirect_uri=http://localhost:8080/V7/callback&response_type=code&client_id=816881978221-bjj2gg9r7gj8r4ddks56h6nionsqf70g.apps.googleusercontent.com&approval_prompt=force";
-   // }
-</script> --}}
-
-{{!-- <div class='grow' ><button onclick="redirectTo()"><img src='https://i.stack.imgur.com/QPLoG.png'></button></div> --}}
-
-{{!-- <script>
-   //function redirectTo(){
-     //   const hostname=window.location.hostname; 
-       //console.log(hostname);
-        //window.location.href = "https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&state="+hostname+"&redirect_uri=http://localhost:8080/V4/LoginServlet&response_type=code&client_id=816881978221-bjj2gg9r7gj8r4ddks56h6nionsqf70g.apps.googleusercontent.com&approval_prompt=force";
-   }
-</script> --}}
-
-<br><br>
-      <a href="user_register" style="color:black;">New User Register</a>
-
-      {{!-- <a href="Reg.jsp" style="color:black;">New User Register</a> --}}
-      {{!-- </label> --}}
-{{!-- </body>
-</html> --}}
+  <br>
+  <br>
+  <a href="user_register" style="color:black;">New User Register</a>

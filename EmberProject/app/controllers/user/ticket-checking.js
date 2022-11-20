@@ -36,7 +36,6 @@ export default class UserTicketCheckingController extends Controller {
         console.log(response);
         var result = response;
         t.router.transitionTo("user.showTicket");
-        //   window.location.reload(true);
       },
     });
   }

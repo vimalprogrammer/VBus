@@ -38,7 +38,6 @@ public class TicketChecking extends HttpServlet {
         
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //inialize session
                 HttpSession session = request.getSession(true);
 
 

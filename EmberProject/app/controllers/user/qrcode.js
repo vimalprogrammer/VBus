@@ -36,7 +36,6 @@ export default class UserQrcodeController extends Controller {
         console.log(response);
         var res = response;
         if (res == 1) {
-          // t.router.transitionTo("user.Welcome");
           t.router.transitionTo("user.Welcome");
           Swal.fire({
             position: 'center',

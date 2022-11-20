@@ -19,7 +19,6 @@ public class IsLoggedIn extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         System.out.println("Logged In");
-        // request.getSession().setAttribute("loggedIN", "yes");
         out.println("1");
     }
 }

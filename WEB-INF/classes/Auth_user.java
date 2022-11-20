@@ -31,7 +31,7 @@ public class Auth_user extends HttpServlet{
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException{
 
 
-		 HttpSession session = req.getSession();
+		HttpSession session = req.getSession();
 
 		String user=String.valueOf(session.getAttribute("username"));
 		String pass=String.valueOf(session.getAttribute("password"));
@@ -40,22 +40,15 @@ public class Auth_user extends HttpServlet{
 		System.out.println("Auth_pass: "+pass);
 
 		String qr="";
-        Connection c = null;
         Statement stmt = null;
-		try
-		{
-	     Class.forName("org.postgresql.Driver");
-	     c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-	     //c.setAutoCommit(false);
-	     stmt = c.createStatement();
-		 ResultSet rs = stmt.executeQuery( "SELECT * FROM user_details where first_name='"+user+"'");
+		try{
+			
+		  Connection c=ConnectionDB.getConnection();
+	      stmt = c.createStatement();
+		  ResultSet rs = stmt.executeQuery( "SELECT * FROM user_details where first_name='"+user+"'");
 	 
-		 // String sec_key="";
-		 // if(rs.next())
-		 // {
-		 rs.next();
+		  rs.next();
 		  String sec_key=rs.getString("secret_key");
-		 //}
 
 		 if(sec_key==null)
 		 {
@@ -63,88 +56,53 @@ public class Auth_user extends HttpServlet{
 
 		     String sql = "UPDATE user_details SET secret_key = '"+key+"' where first_name='"+user+"';";
 		     stmt.executeUpdate(sql);
-		     //out.println("<br><br><br><center>User Registered Successfully!!!</center><br><br>");
 		     stmt.close();
 		     c.close();
-
-			//String key="CUPPS2FZTRSDZBOCXT4MA7PRT6HXEL65";
 
 	         String name=String.valueOf(session.getAttribute("username"));
 	         String email=String.valueOf(session.getAttribute("password"));
 	         session.setAttribute("sec_key",key);
 			
 			String barCodeUrl = Code.getGoogleAuthenticatorBarCode(key, email, name);
-
-			//Code.createQRCode(barCodeUrl, "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\Demo1-Debug-v3\\QRCode.png", 400, 400);
-			//otpauth://totp/tcs%3Avars?secret=QDWSM3OYIPGTEVSPB5FKVDM3CSNCWHOP&issuer=tcs
-			//https://chart.googleapis.com/chart?cht=qr&chl=otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example&chs=160x160&chld=L|0
 			
-			//https://chart.googleapis.com/chart?cht=qr&chl=otpauth://totp/vimal?secret=JBSWY3DPEHPK3PXP&chs=160x160&chld=L|0
 			qr="https://chart.googleapis.com/chart?cht=qr&chl=otpauth://totp/"+name+"?secret="+key+"&chs=160x160&chld=L|0";
-			//String qr="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl="key"&choe=UTF-8";
 			session.setAttribute("qr",qr);
 			Code.createQRCode(barCodeUrl, "qr", 400, 400);
-			//catch(Exception e){p.println("Exception : "+e);}
 			String code = Code.getTOTPCode(key);
 
-			session.setAttribute("code", code);
-			
-			//req.getRequestDispatcher("code.jsp").forward(req, res);
+			session.setAttribute("code", code);	
 		}
 		else
 		{
 		    String key = rs.getString("secret_key");
-		    //out.println("<br><br><br><center>User Registered Successfully!!!</center><br><br>");
 		    stmt.close();
 		    c.close();
-
-			//String key="CUPPS2FZTRSDZBOCXT4MA7PRT6HXEL65";
-
 	        String name=String.valueOf(session.getAttribute("username"));
 	        String email=String.valueOf(session.getAttribute("password"));
 
 	        session.setAttribute("sec_key",key);
 			
-			String barCodeUrl = Code.getGoogleAuthenticatorBarCode(key, email, name);
-
-			//Code.createQRCode(barCodeUrl, "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\Demo1-Debug-v3\\QRCode.png", 400, 400);
-			//otpauth://totp/tcs%3Avars?secret=QDWSM3OYIPGTEVSPB5FKVDM3CSNCWHOP&issuer=tcs
-			//https://chart.googleapis.com/chart?cht=qr&chl=otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example&chs=160x160&chld=L|0
-			
-			//https://chart.googleapis.com/chart?cht=qr&chl=otpauth://totp/vimal?secret=JBSWY3DPEHPK3PXP&chs=160x160&chld=L|0
+			String barCodeUrl = Code.getGoogleAuthenticatorBarCode(key, email, name);			
 			qr="https://chart.googleapis.com/chart?cht=qr&chl=otpauth://totp/"+name+"?secret="+key+"&chs=160x160&chld=L|0";
-			//String qr="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl="key"&choe=UTF-8";
 			session.setAttribute("qr",qr);
 			Code.createQRCode(barCodeUrl, "qr", 400, 400);
-			//catch(Exception e){p.println("Exception : "+e);}
 			String code = Code.getTOTPCode(key);
-
-			session.setAttribute("code", code);
-			
-			//req.getRequestDispatcher("code.jsp").forward(req, res);
-			
+			session.setAttribute("code", code);			
 		}
 	}
 catch(Exception e){
 	System.out.println("Exception is : "+ e);
 }
 
-String qr1=String.valueOf(session.getAttribute("qr"));
-String code1=String.valueOf(session.getAttribute("code"));
-
-// System.out.println(qr);
-// String password = (String) session.getAttribute("password");
-PrintWriter out = res.getWriter();
-JSONArray groups = new JSONArray();
-JSONObject qrcode = new JSONObject();
-qrcode.put("id", 1);
-qrcode.put("qr", qr1);
-qrcode.put("code", code1);
-// singlegroup.put("password",password);
-// groups.add(singlegroup);
-// singlegroup = new JSONObject();
-// singlegroup.put("demo","varun");
-groups.add(qrcode);
-out.println(groups); 
+	String qr1=String.valueOf(session.getAttribute("qr"));
+	String code1=String.valueOf(session.getAttribute("code"));
+	PrintWriter out = res.getWriter();
+	JSONArray groups = new JSONArray();
+	JSONObject qrcode = new JSONObject();
+	qrcode.put("id", 1);
+	qrcode.put("qr", qr1);
+	qrcode.put("code", code1);
+	groups.add(qrcode);
+	out.println(groups); 
 }
 }

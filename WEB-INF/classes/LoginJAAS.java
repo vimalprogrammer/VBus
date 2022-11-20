@@ -24,7 +24,6 @@ public class LoginJAAS extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         System.out.println("INSIDE login JAAS");
-        // request.getSession().setAttribute("loggedIN", "yes");
         out.println("0");
     }
 }

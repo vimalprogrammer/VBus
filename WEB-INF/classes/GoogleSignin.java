@@ -46,15 +46,7 @@ public class GoogleSignin extends HttpServlet {
         session.setAttribute("email", email);
 
         try{
-            Class.forName("org.postgresql.Driver");
-            System.out.println("Opened database successfully - username null check");
-        }catch(ClassNotFoundException e){
-            System.out.println("Class not found "+e);
-            System.out.println("Error in loading driver");
-        }
-        
-        try{
-            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
+            Connection c=ConnectionDB.getConnection();
             Statement stmt = c.createStatement();
             ResultSet rsG = stmt.executeQuery("SELECT * FROM user_details where email='"+email+"';");
             int accountExist=0;

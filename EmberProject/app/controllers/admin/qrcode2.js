@@ -19,7 +19,6 @@ export default class AdminQrcode2Controller extends Controller {
         console.log(response);
         var res = response;
         if (res == 1) {
-          // t.router.transitionTo("user.Welcome");
           t.router.transitionTo("admin.ad_panel");
           Swal.fire({
             position: 'center',

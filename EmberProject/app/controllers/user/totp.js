@@ -37,9 +37,7 @@ export default class UserTotpController extends Controller {
         console.log("ajax sent");
         console.log(response);
         var result = response;
-        // t.router.transitionTo("user.Welcome");
         t.router.transitionTo("user.qrcode");
-        //   window.location.reload(true);
       },
     });
   }

@@ -40,28 +40,15 @@ public class delete_bus extends HttpServlet {
 
         String bus_no = request.getParameter("bus_no");
 
-
-        // JSONArray groups = new JSONArray();
         JSONObject singlegroup = new JSONObject();
         singlegroup.put("id",1);
         singlegroup.put("bus_no", bus_no);
-        // groups.add(singlegroup);        
 
         PrintWriter out = response.getWriter();
         int jsonid=0;
 
         try{
-            Class.forName("org.postgresql.Driver");
-            System.out.println("Opened database successfully - 1");
-        }catch(ClassNotFoundException e){
-            System.out.println("Class not found "+e);
-            System.out.println("Error in loading driver");
-        }
-        try
-        {
-            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-            c.setAutoCommit(false);           
-           
+            Connection c=ConnectionDB.getConnection();         
             Statement stmt = c.createStatement();
 
             ResultSet rs = stmt.executeQuery( "SELECT * FROM bus_details where bus_name='"+bus_no+"'");

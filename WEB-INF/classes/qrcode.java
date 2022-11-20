@@ -38,22 +38,14 @@ public class qrcode extends HttpServlet {
         
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //inialize session
                 HttpSession session = request.getSession(true);
 
                 String qr=session.getAttribute("qr").toString();
 
                 System.out.println(qr);
-                // String password = (String) session.getAttribute("password");
-                // JSONArray groups = new JSONArray();
                 JSONObject user = new JSONObject();
                 user.put("id", 1);
                 user.put("qr", qr);
-                // singlegroup.put("password",password);
-                // groups.add(singlegroup);
-                // singlegroup = new JSONObject();
-                // singlegroup.put("demo","varun");
-                // groups.add(singlegroup);
                 out.println(user);        
         }
     }

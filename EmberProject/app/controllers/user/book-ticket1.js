@@ -38,7 +38,6 @@ export default class UserBookTicket1Controller extends Controller {
         console.log(response);
         var result = response;
         t.router.transitionTo("user.TicketChecking");
-        //   window.location.reload(true);
       },
     });
   }

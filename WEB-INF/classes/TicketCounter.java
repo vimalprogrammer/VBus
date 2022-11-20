@@ -39,16 +39,8 @@ public class TicketCounter extends HttpServlet {
 	public synchronized void bookTicket(String pname, String seat_booked, String bus_no) {
 
 		try{
-            Class.forName("org.postgresql.Driver");
-        }catch(ClassNotFoundException e){
-            System.out.println("Class not found "+e);
-        }
-
-		try{
-			Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-			//c.setAutoCommit(false);
+			Connection c=ConnectionDB.getConnection();
 			Statement stmt = c.createStatement();
-		//---------------------------------------------------------------------------------
 
 			String sql="select * from "+bus_no+" where id='"+seat_booked+"'";
 			ResultSet rs = stmt.executeQuery(sql);
@@ -62,10 +54,7 @@ public class TicketCounter extends HttpServlet {
 				String booked_seat = "B"+seat_booked;
 				String sql1 = "Update "+bus_no+" set seat_no='"+booked_seat+"' where id='"+seat_booked+"'; ";
 				stmt.executeUpdate(sql1);	
-				// seat_block_flag="1";
 			}
-
-		//-----------------------------------------------------------------------------------
 
 			stmt.close();
 			c.close();
@@ -74,58 +63,23 @@ public class TicketCounter extends HttpServlet {
 			System.out.println("Error in connection "+e);
 		}
 
-		// System.out.println("---Ticket Counter Called----");
-
 		System.out.println("Passenger Name: " + pname);
 		System.out.println("Seat Booked: " + seat_booked);
 		System.out.println("Bus No: " + bus_no);
-
-		// JSONObject seat = new JSONObject();
-		// if (Booking_possible.equals("false")) {
-		// 	seat.put("id", 1);
-		// 	seat.put("seat_block_flag", true);
-		// } else
-		// 	seat.put("seat_block_flag", false);
-
-		//Accessing in the next page
-
-		// System.out.println(seat);
-		// invoice test=new invoice();
-		// test.setinfo(Booking_possible);
-
 		
 	}
-
-	//------------------------------------------------
 
 	protected void doGet(HttpServletRequest request,
 	HttpServletResponse response) throws ServletException, IOException {    
 	System.out.println("Ticket Counter Called");
 	HttpSession session = request.getSession();
 	PrintWriter out = response.getWriter();
-	// JSONArray groups = new JSONArray();
 
 	String Booking_possible_status= Booking_possible;
 	System.out.println("Booking_possible_status : "+Booking_possible_status);
 
 	session.setAttribute("Booking_possible_status", Booking_possible_status);
 	out.println("Booking Possiblity: "+ Booking_possible_status);
-
-	// JSONObject seat = new JSONObject();
-	// if (Booking_possible.equals("true")) {
-	// 	seat.put("id", 1);
-	// 	seat.put("seat_block_flag", true);
-	// 	seat.put("Available","yes" );
-
-	// } else
-	// {
-	// 	seat.put("seat_block_flag", false);
-	// 	seat.put("Not Available","yes" );
-	// }
-
-	// System.out.println(Booking_possible);
-	// System.out.println(seat);
-	// out.println(seat);
 
 	}
 }

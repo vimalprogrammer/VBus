@@ -38,12 +38,9 @@ public class logout extends HttpServlet {
         
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //inialize session
                 HttpSession session = request.getSession(true);
 
-                //invalidate session
                 session.invalidate();
-                //redirect to login page
                 System.out.println("Logout Worked");
                 out.println("You are successfully logged out!");
 

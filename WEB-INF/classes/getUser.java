@@ -63,45 +63,8 @@ public class getUser extends HttpServlet {
         if(username==null || password==null)
         {
             try{
-                Class.forName("org.postgresql.Driver");
-                System.out.println("Opened database successfully - username null check");
-            }catch(ClassNotFoundException e){
-                System.out.println("Class not found "+e);
-                System.out.println("Error in loading driver");
-            }
-            try{
-                Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-                //c.setAutoCommit(false);
-                Statement stmt = c.createStatement();
-                
-                    // ResultSet rsG2 = stmt.executeQuery("SELECT * FROM signInhandle;");
-    
-    
-                    // while ( rsG2.next() ) {
-                    //     username = rsG2.getString("name");
-                    //     email = rsG2.getString("email");
-                    //     access_token = rsG2.getString("access_token");
-                    //     System.out.println("google : " +username);
-                    //     System.out.println("email : " +email);
-                    //     System.out.println("access_token : " +access_token);
-                    //     // String  phone = rs.getString("phone");
-                    //     session.setAttribute("username", username);
-                    //     session.setAttribute("email", email);
-                    //     session.setAttribute("access_token", access_token);
-                    // }
-                    
-                    // rsG2.close();
-
-                    // stmt.executeUpdate("TRUNCATE TABLE signInhandle;");
-
-                    
-                    // String google_email=session.getAttribute("google_email").toString();
-                    // String google_name=session.getAttribute("google_name").toString();
-
-                    // LoginModuleVbus loginModuleVbus2 = new LoginModuleVbus();
-                    // LoginModuleVbus loginModuleVbus= loginModuleVbus2.getLoginModuleVbus();
-                    // google_email=loginModuleVbus.email;
-                    // google_name=loginModuleVbus.gname;
+                    Connection c=ConnectionDB.getConnection();
+                    Statement stmt = c.createStatement();
                     System.out.println("google_email : " +google_email);
                     System.out.println("google_name : " +google_name);
 
@@ -131,12 +94,9 @@ public class getUser extends HttpServlet {
                     
                         stmt.executeUpdate(sql);
                     }
-
-
                     rsG.close();
                     stmt.close();
                     c.close();
-                //}
             }
             catch(SQLException e){
                     System.out.println("Error in connection V4 "+e);
@@ -147,20 +107,8 @@ public class getUser extends HttpServlet {
     {
         session.setAttribute("qrUser", username);
         session.setAttribute("qrPass", password);
-        // String googleSignIn=(String) session.getAttribute("googleSignIn");
-        // String googleSignInEmail=(String) session.getAttribute("googleSignInEmail");
-        // String googleUsername = (String) session.getAttribute("googleUsername");
-
         try{
-            Class.forName("org.postgresql.Driver");
-            System.out.println("Opened database successfully - 1");
-        }catch(ClassNotFoundException e){
-            System.out.println("Class not found "+e);
-            System.out.println("Error in loading driver");
-        }
-        try{
-            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-            //c.setAutoCommit(false);
+            Connection c=ConnectionDB.getConnection();
             Statement stmt = c.createStatement();
             
                 ResultSet rs = stmt.executeQuery("SELECT * FROM user_details where first_name='"+username+"' and password='"+password+"';");
@@ -170,7 +118,6 @@ public class getUser extends HttpServlet {
                     String  first_name = rs.getString("first_name");
                     String  last_name = rs.getString("last_name");
                     email = rs.getString("email");
-                    // String  phone = rs.getString("phone");
                     session.setAttribute("first_name", first_name);
                     session.setAttribute("last_name", last_name);
                     session.setAttribute("email", email);
@@ -178,28 +125,16 @@ public class getUser extends HttpServlet {
                 rs.close();
                 stmt.close();
                 c.close();
-                // request.getRequestDispatcher("/servlet_user").forward(request, response);
-
         }
         catch(SQLException e){
                 System.out.println("Error in connection "+e);
         }
     }
-
-
-
         System.out.println(username);
-        // String password = (String) session.getAttribute("password");
         PrintWriter out = response.getWriter();
-        // JSONArray groups = new JSONArray();
         JSONObject user = new JSONObject();
         user.put("id", 1);
         user.put("username", username);
-        // singlegroup.put("password",password);
-        // groups.add(singlegroup);
-        // singlegroup = new JSONObject();
-        // singlegroup.put("demo","varun");
-        // groups.add(singlegroup);
         out.println(user);        
 }
 }

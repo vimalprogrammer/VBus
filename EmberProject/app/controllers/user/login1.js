@@ -44,8 +44,6 @@ export default class UserLogin1Controller extends Controller {
             title: 'Oops...',
             text: 'Invalid Credentials!',
           })
-          // document.getElementById('worng-otp').innerHTML =
-          //   'Wrong OTP,Try again!';
         } else {
           $.ajax({
             url: "/V4/IsLoggedIn",
@@ -69,22 +67,6 @@ export default class UserLogin1Controller extends Controller {
         console.log("error");
       },
     });
-
-    // $.ajax({
-    //   url: "/V4/Login",
-    //   method: "GET",
-    //   data: { name: name, password: password },
-    //   success: function (response) {
-    //     console.log("ajax sent");
-    //     console.log(response);
-    //     var result = response;
-    //     if (result == 1) {
-    //       console.log("success");
-    //       // t.router.transitionTo("user.Welcome");
-    //       t.router.transitionTo("user.totp");
-    //     }
-    //   },
-    // });
   }
 
   @action
@@ -152,8 +134,6 @@ export default class UserLogin1Controller extends Controller {
                     console.log("error");
                   },
                 });
-
-                // window.location = 'http://localhost:4200/user/Welcome';
               },
             });
           },
@@ -173,8 +153,6 @@ export default class UserLogin1Controller extends Controller {
         console.log(response);
         console.log(response);
         var result = response;
-        // now.router.transitionTo("user.Welcome");
-        //   window.location.reload(true);
       },
     });
   }

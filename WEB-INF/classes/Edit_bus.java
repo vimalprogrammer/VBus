@@ -56,25 +56,13 @@ public class Edit_bus extends HttpServlet {
         singlegroup.put("dep", dep);
         singlegroup.put("des", des);
         singlegroup.put("price", price);
-        // groups.add(singlegroup);        
 
         PrintWriter out = response.getWriter();
         int jsonid=0;
 
         try{
-            Class.forName("org.postgresql.Driver");
-            System.out.println("Opened database successfully - 1");
-        }catch(ClassNotFoundException e){
-            System.out.println("Class not found "+e);
-            System.out.println("Error in loading driver");
-        }
-        try
-        {
-            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-            c.setAutoCommit(false);
-           
-           
-           Statement stmt = c.createStatement();
+            Connection c=ConnectionDB.getConnection();
+            Statement stmt = c.createStatement();
            
             ResultSet rs = stmt.executeQuery( "SELECT * FROM bus_details where bus_id='"+bus_no+"'");
            if(rs.next())

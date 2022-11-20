@@ -38,7 +38,6 @@ public class add_bus extends HttpServlet {
         
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //inialize session
                 HttpSession session = request.getSession(true);
 
                 String bus_number=String.valueOf(request.getParameter("bus_number"));
@@ -91,16 +90,7 @@ public class add_bus extends HttpServlet {
                     seats="50";
 
                 try{
-                    Class.forName("org.postgresql.Driver");
-                    System.out.println("Opened database successfully - 1");
-                }catch(ClassNotFoundException e){
-                    System.out.println("Class not found "+e);
-                    System.out.println("Error in loading driver");
-                }
-
-                try{
-                    Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-                    //c.setAutoCommit(false);
+                    Connection c=ConnectionDB.getConnection();
                     Statement stmt = c.createStatement();
 
                     String sql = "INSERT INTO Bus_Details (BUS_ID,BUS_NAME,TOTAL_SEATS,AC_or_NON_AC,DEPARTURE,DESTINATION, PRICE, AC) "
@@ -118,7 +108,6 @@ public class add_bus extends HttpServlet {
                   stmt.close();
                   c.commit();
                   c.close();
-                    //ResultSet rs;
                 }
                 catch (SQLException e) {
                     System.out.println("SQL exception occured" + e);
@@ -136,7 +125,6 @@ public class add_bus extends HttpServlet {
                 add_bus.put("layout", layout);
                 add_bus.put("lower_berth", lower_berth);
                 add_bus.put("upper_berth", upper_berth);
-
                 out.println(add_bus);
                     
             }

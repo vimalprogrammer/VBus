@@ -32,7 +32,6 @@
 
     {{#each this.model as |bus| }}
     <tr>
-        {{!-- <td><form {{action "ticketButton" on="submit" }}> <input type="submit" id="bus_no" name="bus_no" value={{bus.bus_no}}></form></td> --}}
         <td><button id="{{bus.id}}" value="{{bus.bus_no}}" type="button" {{ action "ticketButton" bus.id }}>{{bus.bus_no}}</button></td>
         <td>{{bus.bus_name}}</td>
         <td>{{bus.seats}}</td>
@@ -47,5 +46,3 @@
 </center> 
 <br>
     <center><a href="#" onclick="javascript:window.history.back(-1);return false;">Back</a></center>
-
-{{!-- <button style="color:#2cd223;"  id="{{seats.id}}" value="{{seats.seat_cnt}}" {{ action "InvoiceGenerate" seats.id }}>{{seats.seat_cnt}}</button> --}}

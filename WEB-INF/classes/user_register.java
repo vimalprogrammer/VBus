@@ -38,7 +38,6 @@ public class user_register extends HttpServlet {
         
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //inialize session
                 HttpSession session = request.getSession(true);
 
                 String fname=request.getParameter("fname");
@@ -50,16 +49,8 @@ public class user_register extends HttpServlet {
                 String confirm_password=request.getParameter("confirm_password");
 
                 try{
-                    Class.forName("org.postgresql.Driver");
-                    System.out.println("Opened database successfully - 1");
-                }catch(ClassNotFoundException e){
-                    System.out.println("Class not found "+e);
-                    System.out.println("Error in loading driver");
-                }
+                    Connection c=ConnectionDB.getConnection();
 
-                try{
-                    Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-                    //c.setAutoCommit(false);
                     Statement stmt = c.createStatement();
 
                     System.out.println("Insert user details");
@@ -71,12 +62,10 @@ public class user_register extends HttpServlet {
                     stmt.close();
                     c.close();
                     }catch(SQLException e){
-                        // System.out.println("Error in connection");
                         System.out.println("Opened database successfully-catch");
                         System.out.println(e);
                     }
 
-                    // JSONArray groups = new JSONArray();
                     JSONObject user = new JSONObject();
                     user.put("id", 1);
                     user.put("fname", fname);
@@ -86,11 +75,6 @@ public class user_register extends HttpServlet {
                     user.put("gender", gender);
                     user.put("password", password);
                     user.put("confirm_password", confirm_password);
-                    // singlegroup.put("password",password);
-                    // groups.add(singlegroup);
-                    // singlegroup = new JSONObject();
-                    // singlegroup.put("demo","varun");
-                    // groups.add(singlegroup);
                     out.println(user);        
             }
 }

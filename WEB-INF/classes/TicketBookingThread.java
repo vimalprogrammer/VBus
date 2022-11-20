@@ -15,7 +15,6 @@ public class TicketBookingThread extends Thread {
 	
 	public void run() {
 		ticketCounter.bookTicket(passengerName, seat_booked, bus_no);
-		// System.out.println("DEBUG "+ticketCounter.Booking_possible);
 		Test_Ticket.setM(ticketCounter);
 	}
 }

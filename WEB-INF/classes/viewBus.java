@@ -38,21 +38,11 @@ public class viewBus extends HttpServlet {
                        
         HttpSession session = request.getSession();
         JSONArray groups = new JSONArray();
-        // JSONObject singlegroup = new JSONObject();
         PrintWriter out = response.getWriter();
         int jsonid=0;
 
         try{
-            Class.forName("org.postgresql.Driver");
-            System.out.println("Opened database successfully - 1");
-        }catch(ClassNotFoundException e){
-            System.out.println("Class not found "+e);
-            System.out.println("Error in loading driver");
-        }
-        try
-        {
-            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-            //c.setAutoCommit(false);
+            Connection c=ConnectionDB.getConnection();
             Statement stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM bus_details;" );
 
@@ -67,7 +57,6 @@ public class viewBus extends HttpServlet {
                 String price = rs.getString("price");
 
                 JSONObject singlegroup = new JSONObject();
-                // out.println("<tr><td>" + rs.getString(1) + "</td><td>" + rs.getString(2)+ "</td><td>" + rs.getString(3) + "</td><td>" + rs.getString(4) + "</td><td>" +rs.getString(5) +"</td><td>"+rs.getString(6)+"</td></tr>");
                 singlegroup.put("id", jsonid);
                 singlegroup.put("bus_no", rs.getString("bus_id"));
                 singlegroup.put("bus_name", rs.getString("bus_name"));
@@ -78,12 +67,7 @@ public class viewBus extends HttpServlet {
                 singlegroup.put("price", rs.getString("price"));
                 groups.add(singlegroup);
                 jsonid=jsonid+1;
-                // singlegroup = new JSONObject();
             }
-            
-            //stmt.executeUpdate(sql);
-
-            //stmt.executeUpdate(sql);
             stmt.close();
             c.close();
 
@@ -96,43 +80,3 @@ public class viewBus extends HttpServlet {
         out.println(groups);
     }     
 }
-
-
-
-
-
-
-// try
-// {
-//  Class.forName("org.postgresql.Driver").newInstance();
-//  Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-//  c.setAutoCommit(false);
-
-// Statement stmt = c.createStatement();
-// ResultSet rs = stmt.executeQuery( "SELECT * FROM bus_details;" );
-
-// while (rs.next()) 
-// {
-//      int bus_no = rs.getInt("bus_id");
-//      String bus_name = rs.getString("bus_name");
-//      String seats = rs.getString("total_seats");
-//      String sleeper = rs.getString("ac_or_non_ac");
-//      String dep = rs.getString("departure");
-//      String des = rs.getString("destination");
-//      String price = rs.getString("price");
-
-//      // out.println(bus_no+"<br>");
-//      // out.println(bus_name+"<br>");
-//      // out.println(seats+"<br>");
-//      // out.println(sleeper+"<br>");
-//      // out.println(dep+"<br>");
-//      // out.println(des+"<br>");
-
-//     out.println("<tr><td>" + bus_no + "</td><td>" + bus_name + "</td><td>" + seats + "</td><td>" + sleeper + "</td><td>" + dep + "</td><td>" + des+"</td><td>"+price+"</td></tr>");
-// }
-// stmt.close();
-// c.commit();
-// c.close();
-// }
-// catch(Exception e){
-// }

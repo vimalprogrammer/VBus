@@ -38,27 +38,15 @@ public class Login extends HttpServlet {
         
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //inialize session
                 HttpSession session = request.getSession(true);
-
-
                 String res="";
-                
                 String username = request.getParameter("name");
                 String password = request.getParameter("password");
                 System.out.println(username);
                 System.out.println(password);
-                try{
-                    Class.forName("org.postgresql.Driver");
-                    System.out.println("Opened database successfully - 1");
-                }catch(ClassNotFoundException e){
-                    System.out.println("Class not found "+e);
-                    System.out.println("Error in loading driver");
-                }
-        try{
-            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-            //c.setAutoCommit(false);
-               Statement stmt = c.createStatement();
+            try{
+                Connection c=ConnectionDB.getConnection();
+                Statement stmt = c.createStatement();
                 System.out.println("Opened database successfully - 2");
                 ResultSet rs = stmt.executeQuery("SELECT * FROM user_details where first_name='"+username+"' and password='"+password+"';");
                 if(rs.next())
@@ -77,7 +65,6 @@ public class Login extends HttpServlet {
                 stmt.close();
                 c.close();
             }catch(SQLException e){
-                // System.out.println("Error in connection");
                 System.out.println("Opened database successfully-catch");
                 System.out.println(e);
             }

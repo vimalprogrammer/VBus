@@ -38,7 +38,6 @@ public class add_admin extends HttpServlet {
         
                 response.setContentType("text/html");
                 PrintWriter out = response.getWriter();
-                //inialize session
                 HttpSession session = request.getSession(true);
 
                 String new_admin=request.getParameter("new_admin");
@@ -46,20 +45,11 @@ public class add_admin extends HttpServlet {
                 
                 System.out.println(new_admin);
                 System.out.println(new_pass);
+                
                 try{
-                    Class.forName("org.postgresql.Driver");
-                    System.out.println("Opened database successfully - 1");
-                }catch(ClassNotFoundException e){
-                    System.out.println("Class not found "+e);
-                    System.out.println("Error in loading driver");
-                }
-
-                try{
-                    Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
-                    //c.setAutoCommit(false);
+                    Connection c=ConnectionDB.getConnection();
                     Statement stmt = c.createStatement();
 
-                    //ResultSet rs;
                     String sql = "INSERT INTO Admin_Details (ADMIN_NAME, ADMIN_PASSWORD) "
                                      + "VALUES ('"+new_admin+"','"+new_pass+"');";
 
@@ -68,21 +58,14 @@ public class add_admin extends HttpServlet {
                     stmt.close();
                     c.close();
                     }catch(SQLException e){
-                        // System.out.println("Error in connection");
                         System.out.println("Opened database successfully-catch");
                         System.out.println(e);
                     }
 
-                    // JSONArray groups = new JSONArray();
                     JSONObject user = new JSONObject();
                     user.put("id", 1);
                     user.put("new_admin", new_admin);
                     user.put("new_pass", new_pass);
-                    // singlegroup.put("password",password);
-                    // groups.add(singlegroup);
-                    // singlegroup = new JSONObject();
-                    // singlegroup.put("demo","varun");
-                    // groups.add(singlegroup);
                     out.println(user);        
             }
 }
