@@ -24,14 +24,12 @@ export default class AdminLogin2Controller extends Controller {
           console.log("success");
           // t.router.transitionTo("user.Welcome");
           t.router.transitionTo("admin.totp2");
-        }
-        else
-        {
+        } else {
           Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Invalid Credentials!',
-          })
+            icon: "error",
+            title: "Oops...",
+            text: "Invalid Credentials!",
+          });
         }
       },
     });

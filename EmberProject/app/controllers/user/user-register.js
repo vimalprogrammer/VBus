@@ -24,7 +24,7 @@ export default class UserTicketCheckingController extends Controller {
     console.log(password);
     console.log(confirm_password);
 
-    var t=this;
+    var t = this;
     $.ajax({
       url: "/V4/user_register",
       method: "GET",
@@ -40,14 +40,15 @@ export default class UserTicketCheckingController extends Controller {
       success: function (response) {
         console.log("user register ajax sent");
         console.log(response);
-        t.router.transitionTo("user.login1");
+
+        t.router.transitionTo("user.twoFactor");
         Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Registration Successful',
+          position: "center",
+          icon: "success",
+          title: "Registration Successful",
           showConfirmButton: false,
-          timer: 1500
-        }) 
+          timer: 1500,
+        });
       },
     });
   }

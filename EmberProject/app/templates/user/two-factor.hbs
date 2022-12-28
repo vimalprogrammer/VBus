@@ -1,8 +1,9 @@
-{{page-title "Qrcode"}}
+{{page-title "two Fcator"}}
 {{#each this.model as |scan| }}
 <center>
   <form {{action "qrcheck" on="submit" }}>
-  <h2>Open your Authenticator app on your phone and Enter the code</h2>
+  <h2>Open your Authenticator app on your phone and scan this QR code</h2>
+  <center><img src="{{scan.qr}}"></center>
   <input type="text" name="otpcode" id="otpcode" placeholder="Enter code"><br><br>
   <button type="submit" >Submit</button>
 </form>

@@ -25,21 +25,25 @@ export default class UserAddCalController extends Controller {
   @action
   AddToCal() {
     $.ajax({
-      url: '/V4/',
-      method: 'GET',
+      url: "/V4/",
+      method: "GET",
       data: {},
       success: function (response) {
         console.log(response);
         var accessToken = response;
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://www.googleapis.com/calendar/v3/calendars/primary/events?access_token=' + accessToken);
-        xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
-        xhr.responseType = 'json';
+        xhr.open(
+          "POST",
+          "https://www.googleapis.com/calendar/v3/calendars/primary/events?access_token=" +
+            accessToken
+        );
+        xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+        xhr.responseType = "json";
         xhr.onload = () => {
-        console.log(xhr.response.id);
+          console.log(xhr.response.id);
         };
-      }
-      });
+      },
+    });
   }
 
   @action
@@ -52,7 +56,7 @@ export default class UserAddCalController extends Controller {
 
     gapi.auth.setToken({
       access_token: access_token,
-  });
+    });
 
     var title = "Vimal Bus Reservation";
     var description = "Bus Booked Successfully";
@@ -60,13 +64,13 @@ export default class UserAddCalController extends Controller {
 
     var startdate = new Date();
     var enddate = new Date();
-    var DD = String(startdate.getDate()).padStart(2, '0');
-    var MM = String(startdate.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var DD = String(startdate.getDate()).padStart(2, "0");
+    var MM = String(startdate.getMonth() + 1).padStart(2, "0"); //January is 0!
     var YYYY = startdate.getFullYear();
-    startdate = YYYY +"-"+ MM +"-"+ DD+"T10:00:00.000-07:00";
-    enddate= YYYY +"-"+ MM +"-"+ DD+"T10:25:00.000-07:00";
-    console.log('Date-Time: ', startdate);
-    console.log('Date-Time: ', enddate);
+    startdate = YYYY + "-" + MM + "-" + DD + "T10:00:00.000-07:00";
+    enddate = YYYY + "-" + MM + "-" + DD + "T10:25:00.000-07:00";
+    console.log("Date-Time: ", startdate);
+    console.log("Date-Time: ", enddate);
 
     var event = {
       summary: title,
@@ -102,11 +106,11 @@ export default class UserAddCalController extends Controller {
       console.log("Event created: " + event.htmlLink);
     });
     Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Successfully added to Google Calendar',
+      position: "center",
+      icon: "success",
+      title: "Successfully added to Google Calendar",
       showConfirmButton: false,
-      timer: 1500
-    })  
+      timer: 1500,
+    });
   }
 }

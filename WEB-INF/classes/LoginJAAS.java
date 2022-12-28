@@ -23,7 +23,7 @@ public class LoginJAAS extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        System.out.println("INSIDE login JAAS");
+        System.out.println("**INSIDE login JAAS**");
         out.println("0");
     }
 }

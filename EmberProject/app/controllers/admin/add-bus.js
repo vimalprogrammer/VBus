@@ -39,7 +39,7 @@ export default class AdminAddBusController extends Controller {
     console.log(last_row);
     console.log(lower_berth);
     console.log(upper_berth);
-     var t=this;
+    var t = this;
     $.ajax({
       url: "/V4/add_bus",
       method: "GET",
@@ -61,12 +61,12 @@ export default class AdminAddBusController extends Controller {
         t.router.transitionTo("admin.ad_panel");
         console.log(response);
         Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Bus Added Successfully',
+          position: "center",
+          icon: "success",
+          title: "Bus Added Successfully",
           showConfirmButton: false,
-          timer: 1500
-        }) 
+          timer: 1500,
+        });
       },
     });
   }

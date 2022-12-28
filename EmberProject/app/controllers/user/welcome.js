@@ -35,12 +35,12 @@ export default class UserWelcomeController extends Controller {
         console.log(response);
         t.router.transitionTo("login");
         Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Logged out Successful',
+          position: "center",
+          icon: "success",
+          title: "Logged out Successful",
           showConfirmButton: false,
-          timer: 1500
-        }) 
+          timer: 1500,
+        });
       },
     });
   }

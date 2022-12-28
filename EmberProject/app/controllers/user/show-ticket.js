@@ -39,15 +39,12 @@ export default class UserShowTicketController extends Controller {
         console.log(obj);
         console.log(obj.res);
         var res = obj.res;
-        if(res=="false"){
-            Swal.fire('Sorry the seat is already booked by someone else');
+        if (res == "false") {
+          Swal.fire("Sorry the seat is already booked by someone else");
+        } else {
+          t.router.transitionTo("user.invoice");
         }
-
-        else
-        {
-            t.router.transitionTo("user.invoice");
-        }
-  },
-});
+      },
+    });
   }
 }

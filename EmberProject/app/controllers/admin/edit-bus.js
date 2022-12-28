@@ -41,12 +41,12 @@ export default class AdminEditBusController extends Controller {
         var result = response;
         t.router.transitionTo("admin.ad_panel");
         Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Bus Edited Successfully',
+          position: "center",
+          icon: "success",
+          title: "Bus Edited Successfully",
           showConfirmButton: false,
-          timer: 1500
-        }) 
+          timer: 1500,
+        });
       },
     });
   }

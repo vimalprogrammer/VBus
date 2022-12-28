@@ -34,7 +34,7 @@ import org.json.simple.JSONArray;
 public class qrcheck extends HttpServlet {
 
     protected void doGet(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {    
+        HttpServletResponse response) throws ServletException, IOException {    
         System.out.println("qrcheck Called");
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -42,9 +42,9 @@ public class qrcheck extends HttpServlet {
 
         String res="0";
         String qrcode = (String) session.getAttribute("code");
-        System.out.println(qrcode);
+        System.out.println("QRCODE : "+qrcode);
         String otpcode = request.getParameter("otpcode");
-        System.out.println(otpcode);
+        System.out.println("OTPCODE : "+otpcode);
         if(otpcode.equals(qrcode)){
             System.out.println("OTP and QR code matched");
             res="1";

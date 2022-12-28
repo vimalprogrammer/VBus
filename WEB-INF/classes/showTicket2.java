@@ -51,8 +51,21 @@ public class showTicket2 extends HttpServlet {
         PrintWriter out = response.getWriter();
         JSONArray groups = new JSONArray();
         int jsonid=0;
+
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+            System.out.println("Opened database successfully - 1");
+        }
+        
+        catch(ClassNotFoundException e){
+            System.out.println("Class not found "+e);
+            System.out.println("Error in loading driver");
+        }
+
         try{
-            Connection c=ConnectionDB.getConnection();
+            Connection c=DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
+
             Statement stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM "+bus_no+" order by id desc limit 1");
             while ( rs.next() ) {

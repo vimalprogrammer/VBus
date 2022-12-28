@@ -21,6 +21,7 @@ Router.map(function () {
     this.route("totp");
     this.route("qrcode");
     this.route("user_register");
+    this.route("twoFactor");
   });
   this.route("not-found", { path: "/*path" });
   this.route("item", { path: "/item/:item_id" });
@@ -36,4 +37,6 @@ Router.map(function () {
     this.route("delete_bus");
     this.route("add_admin");
   });
+
+  this.route("useer", function () {});
 });

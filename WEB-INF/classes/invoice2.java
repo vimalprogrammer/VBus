@@ -46,7 +46,8 @@ public class invoice2 extends HttpServlet {
         String bus_no= (String) session.getAttribute("bus_no");
         String email= (String) session.getAttribute("email");
         try{
-            Connection c=ConnectionDB.getConnection();
+            Connection c=DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
+
             Statement stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM user_details where email='"+email+"'");
             String  first_name="";

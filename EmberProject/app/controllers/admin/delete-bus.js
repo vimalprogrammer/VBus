@@ -19,12 +19,12 @@ export default class AdminDeleteBusController extends Controller {
         console.log(response);
         t.router.transitionTo("admin.ad_panel");
         Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Bus Deleted Successfully',
+          position: "center",
+          icon: "success",
+          title: "Bus Deleted Successfully",
           showConfirmButton: false,
-          timer: 1500
-        }) 
+          timer: 1500,
+        });
       },
     });
   }

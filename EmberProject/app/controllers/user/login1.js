@@ -40,10 +40,10 @@ export default class UserLogin1Controller extends Controller {
         if (response == 2) {
           console.log("error page");
           Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Invalid Credentials!',
-          })
+            icon: "error",
+            title: "Oops...",
+            text: "Invalid Credentials!",
+          });
         } else {
           $.ajax({
             url: "/V4/IsLoggedIn",

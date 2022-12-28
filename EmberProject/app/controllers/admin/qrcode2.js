@@ -21,20 +21,18 @@ export default class AdminQrcode2Controller extends Controller {
         if (res == 1) {
           t.router.transitionTo("admin.ad_panel");
           Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Login Successful',
+            position: "center",
+            icon: "success",
+            title: "Login Successful",
             showConfirmButton: false,
-            timer: 1500
-          }) 
-        }
-        else
-        {
+            timer: 1500,
+          });
+        } else {
           Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Invalid Credentials!',
-          })
+            icon: "error",
+            title: "Oops...",
+            text: "Invalid Credentials!",
+          });
         }
       },
     });

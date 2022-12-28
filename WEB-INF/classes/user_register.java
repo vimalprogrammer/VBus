@@ -48,10 +48,35 @@ public class user_register extends HttpServlet {
                 String password=request.getParameter("password");
                 String confirm_password=request.getParameter("confirm_password");
 
-                try{
-                    Connection c=ConnectionDB.getConnection();
+                System.out.println("|||||||||||||||||||||||||||||||||||||||");
+                System.out.println(fname);
+                System.out.println(lname);
+                System.out.println(email);
+                System.out.println(ph);
+                System.out.println(gender);
+                System.out.println(password);
+                System.out.println("|||||||||||||||||||||||||||||||||||||||");
 
-                    Statement stmt = c.createStatement();
+                session.setAttribute("username",fname);
+                session.setAttribute("email",email);
+
+                try
+                {
+                    Class.forName("org.postgresql.Driver");
+                    System.out.println("Opened database successfully - 1");
+                }
+                
+                catch(ClassNotFoundException e){
+                    System.out.println("Class not found "+e);
+                    System.out.println("Error in loading driver");
+                }
+
+                Connection con = null;
+
+                try{
+                    con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
+
+                    Statement stmt = con.createStatement();
 
                     System.out.println("Insert user details");
                     String sql = "INSERT INTO User_Details (FIRST_NAME,LAST_NAME,EMAIL,PHONE,GENDER,PASSWORD) "
@@ -60,7 +85,7 @@ public class user_register extends HttpServlet {
                     stmt.executeUpdate(sql);
 
                     stmt.close();
-                    c.close();
+                    con.close();
                     }catch(SQLException e){
                         System.out.println("Opened database successfully-catch");
                         System.out.println(e);

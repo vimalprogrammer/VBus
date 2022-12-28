@@ -3,25 +3,8 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import $ from "jquery";
 
-export default class UserQrcodeController extends Controller {
+export default class UserTwoFactorController extends Controller {
   @service router;
-  constructor() {
-    super(...arguments);
-    var now = this;
-    $.ajax({
-      url: "/V4/IsLoggedIn",
-      method: "GET",
-      data: {},
-      success: function (response) {
-        console.log(response);
-        if (response == 1) {
-          console.log("You can Access! Logged In!");
-        } else if (response == 0) {
-          now.router.transitionTo("user.login1");
-        }
-      },
-    });
-  }
   @action
   qrcheck() {
     var otpcode = document.getElementById("otpcode").value;
@@ -33,10 +16,11 @@ export default class UserQrcodeController extends Controller {
       data: { otpcode: otpcode },
       success: function (response) {
         console.log("ajax sent");
-        console.log(response);
+        console.log("Response : "+response);
+        console.log("OTP :"+otpcode);
         var res = response;
         if (res == 1) {
-          t.router.transitionTo("user.Welcome");
+          t.router.transitionTo("user.login1");
           Swal.fire({
             position: "center",
             icon: "success",

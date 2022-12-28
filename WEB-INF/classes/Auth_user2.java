@@ -41,9 +41,21 @@ public class Auth_user2 extends HttpServlet{
 
 		String ad_qr="";
         Statement stmt = null;
+
+	try
+	{
+		Class.forName("org.postgresql.Driver");
+		System.out.println("Opened database successfully - 1");
+	}
+	
+	catch(ClassNotFoundException e){
+		System.out.println("Class not found "+e);
+		System.out.println("Error in loading driver");
+	}
+		
 	try{
-		 Connection c=ConnectionDB.getConnection();
-	     stmt = c.createStatement();
+		Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "1234");
+		stmt = c.createStatement();
 		 ResultSet rs = stmt.executeQuery( "SELECT * FROM admin_details where admin_name='"+ad_user+"'");
 	 
 		 rs.next();
@@ -53,7 +65,7 @@ public class Auth_user2 extends HttpServlet{
 		 {
 			String key = Code.generateSecretKey();
 
-		     String sql = "UPDATE admin_details SET secret_key = '"+key+"' where first_name='"+ad_user+"';";
+		     String sql = "UPDATE admin_details SET secret_key = '"+key+"' where admin_name='"+ad_user+"';";
 		     stmt.executeUpdate(sql);
 		     stmt.close();
 		     c.close();
@@ -83,6 +95,8 @@ public class Auth_user2 extends HttpServlet{
 	        session.setAttribute("sec_key",key);
 			
 			String barCodeUrl = Code.getGoogleAuthenticatorBarCode(key, email, name);
+
+			name=name+"@Vbus.com";
 
 			ad_qr="https://chart.googleapis.com/chart?cht=qr&chl=otpauth://totp/"+name+"?secret="+key+"&chs=160x160&chld=L|0";
 			session.setAttribute("ad_qr",ad_qr);

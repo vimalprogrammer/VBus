@@ -18,12 +18,12 @@ export default class AdminAdPanelController extends Controller {
         // t.router.transitionTo("user.Welcome");
         t.router.transitionTo("login");
         Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Logged out Successfully',
+          position: "center",
+          icon: "success",
+          title: "Logged out Successfully",
           showConfirmButton: false,
-          timer: 1500
-        }) 
+          timer: 1500,
+        });
         //   window.location.reload(true);
       },
     });

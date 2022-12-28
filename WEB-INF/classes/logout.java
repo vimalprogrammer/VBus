@@ -43,6 +43,5 @@ public class logout extends HttpServlet {
                 session.invalidate();
                 System.out.println("Logout Worked");
                 out.println("You are successfully logged out!");
-
         }
 }

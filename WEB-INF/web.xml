@@ -185,6 +185,15 @@
 </servlet-mapping>
 
 <servlet>
+	<servlet-name>twoFactor</servlet-name>
+	<servlet-class>twoFactor</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>twoFactor</servlet-name>
+	<url-pattern>/twoFactor</url-pattern>
+</servlet-mapping>
+
+<servlet>
 	<servlet-name>qrcheck</servlet-name>
 	<servlet-class>qrcheck</servlet-class>
 </servlet>
@@ -421,7 +430,8 @@
 		<url-pattern>/IsLoggedIn</url-pattern>
 		<url-pattern>/Login</url-pattern>
 		<url-pattern>/logout</url-pattern>
-		<url-pattern>/qrcheck</url-pattern>
+		<!-- <url-pattern>/qrcheck</url-pattern> -->
+		<!-- <url-pattern>/twoFactor</url-pattern> -->
 		<!-- <url-pattern>/qrcheck2</url-pattern> -->
 		<!-- <url-pattern>/qrcode</url-pattern> -->
 		<url-pattern>/showTicket2</url-pattern>
